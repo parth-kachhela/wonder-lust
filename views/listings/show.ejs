@@ -1,0 +1,92 @@
+<% layout("/layouts/boilerplate") %>
+<link rel="stylesheet" href="../css/style.css" />
+
+<div class="row mt-3">
+  <div class="col-8 offset-3">
+    <h2><b><%= listings.title %></b></h2>
+  </div>
+  <div class="card col-6 offset-3">
+    <img
+      src="<%= listings.image %>"
+      class="card-img-top show-img"
+      alt="Listing_img"
+    />
+    <div class="card-body">
+      <p class="card-text">Owned by <%= listings.owner.username %></p>
+      <p class="card-text">
+        <% if (listings.price !== null) { %> &#8377;<%=
+        listings.price.toLocaleString("en-In") %> <% } else { %> &#8377;N/A <% }
+        %>
+      </p>
+      <p class="card-text"><%= listings.description %></p>
+      <p class="card-text"><%= listings.location %></p>
+      <p class="card-text"><%= listings.country %></p>
+    </div>
+  </div>
+  <!-- here if statement is used for authorization -->
+  <% if(currentUser && currentUser._id.equals(listings.owner._id)) {%>
+  <div class="btns">
+    <button class="btn1 btn btn-dark col-1 offset-3">
+      <a href="/listings/<%= listings._id %>/edit">Edit</a>
+    </button>
+
+    <form action="/listings/<%= listings._id %>?_method=DELETE" method="POST">
+      <button class="btn btn-dark offset-5">DELETE</button>
+    </form>
+  </div>
+  <% } %>
+  <div>
+    <form
+      method="POST"
+      action="/listings/<%= listings._id %>/reviews"
+      class="mb-3 needs-validation"
+      novalidate
+    >
+      <div class="mb-3 mt-3">
+        <label for="rating" class="form-label">Rating</label>
+        <input
+          class="form-control"
+          type="range"
+          name="reviews[rating]"
+          id="rating"
+          min="1"
+          max="5"
+          required
+        />
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="comment" class="form-label">Comment</label>
+        <textarea
+          name="reviews[comment]"
+          id="comment"
+          cols="20"
+          rows="5"
+          class="form-control"
+          required
+        ></textarea>
+        <div class="invalid-feedback">Please enter a comment</div>
+        <button class="btn btn-dark mb-3 mt-3">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div>
+    <h3>Reviews</h3>
+    <% if(!listings.review) {%>
+    <p class="card-text">no review yet</p>
+    <% } else { %> <% for(review of listings.review) { %>
+    <div class="card">
+      <div class="inner-card card-body">
+        <h5 class="card-title">Rating: <%= review.rating %></h5>
+        <p class="card-text">Comment: <%= review.comment %></p>
+        <form
+          method="POST"
+          action="/listings/<%= listings._id %>/reviews/<%= review._id %>?_method=DELETE"
+        >
+          <button class="btn btn-dark btn-sm">DELETE</button>
+        </form>
+      </div>
+
+      <% } }%>
+    </div>
+  </div>
+</div>
