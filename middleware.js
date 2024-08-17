@@ -1,4 +1,5 @@
 const Listing = require("./models/listing");
+const Review = require("./models/review.js");
 const { reviewSchema } = require("./schema.js");
 
 //for login user
@@ -50,4 +51,22 @@ module.exports.validateReviews = (req, res, next) => {
   } else {
     next();
   }
+};
+
+module.exports.isreviewAuthor = async (req, res, next) => {
+  let { id, reviewId } = req.params;
+  let review = await Review.findById(reviewId);
+  console.log(id, reviewId);
+
+  if (!review) {
+    req.flash("error", "Review not found");
+    return res.redirect(`/listings/${id}`);
+  }
+
+  if (!review.author.equals(res.locals.currentUser._id)) {
+    req.flash("error", "You are not able to do that!");
+    return res.redirect(`/listings/${id}`);
+  }
+
+  next();
 };

@@ -10,10 +10,9 @@ module.exports.postReviews = async (req, res) => {
     }
 
     const newReviewData = { ...req.body.reviews };
-
     const newReview = new Review(newReviewData);
-    console.log(newReview._id);
-
+    newReview.author = req.user._id;
+    console.log(newReview);
     await newReview.save();
     listing.review.push(newReview._id);
     await listing.save();

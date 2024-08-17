@@ -33,7 +33,12 @@ module.exports.showlistings = async (req, res) => {
   let { id } = req.params;
   let listings = await Listing.findById(id)
     //here we can poputatele the reviews and ower for get all the data in it
-    .populate("review")
+    .populate({
+      path: "review",
+      populate: {
+        path: "author",
+      },
+    })
     .populate("owner");
 
   if (!listings) {

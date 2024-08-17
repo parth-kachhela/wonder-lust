@@ -34,7 +34,7 @@
       <button class="btn btn-dark offset-5">DELETE</button>
     </form>
   </div>
-  <% } %>
+  <% } %> <% if(currentUser) { %>
   <div>
     <form
       method="POST"
@@ -69,14 +69,17 @@
       </div>
     </form>
   </div>
+  <% } %>
   <div>
+    <hr />
     <h3>Reviews</h3>
     <% if(!listings.review) {%>
     <p class="card-text">no review yet</p>
     <% } else { %> <% for(review of listings.review) { %>
     <div class="card">
       <div class="inner-card card-body">
-        <h5 class="card-title">Rating: <%= review.rating %></h5>
+        <h5 class="card-text"><%= review.author.username %></h5>
+        <p class="card-text">Rating: <%= review.rating %></p>
         <p class="card-text">Comment: <%= review.comment %></p>
         <form
           method="POST"
