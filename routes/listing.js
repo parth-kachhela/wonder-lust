@@ -9,12 +9,18 @@ const { reviewSchema, listingsSchema } = require("../schema.js");
 // index rout
 router.get("/", listingscontroller.index);
 
-//new rout
-router.get("/new", isLoggedIn, listingscontroller.addNewlistings);
-router.post("/new", isLoggedIn, wrapAsync(listingscontroller.postNewListing));
+router
+  .route("/new")
+  .get(isLoggedIn, listingscontroller.addNewlistings)
+  .post(isLoggedIn, wrapAsync(listingscontroller.postNewListing));
 
 // show rout
-router.get("/:id", wrapAsync(listingscontroller.showlistings));
+
+router
+  .route("/:id")
+  .get(wrapAsync(listingscontroller.showlistings))
+  .delete(isLoggedIn, isOwner, wrapAsync(listingscontroller.destroylistings))
+  .put(isOwner, wrapAsync(listingscontroller.updatelistings));
 
 //edit rout
 router.get(
@@ -23,14 +29,7 @@ router.get(
   isOwner,
   wrapAsync(listingscontroller.editlistings)
 );
-router.put("/:id", isOwner, wrapAsync(listingscontroller.updatelistings));
 
 //Delete rout
-router.delete(
-  "/:id",
-  isLoggedIn,
-  isOwner,
-  wrapAsync(listingscontroller.destroylistings)
-);
 
 module.exports = router;
