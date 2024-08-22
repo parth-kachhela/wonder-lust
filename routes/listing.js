@@ -9,10 +9,11 @@ const { reviewSchema, listingsSchema } = require("../schema.js");
 // index rout
 router.get("/", listingscontroller.index);
 
-router
-  .route("/new")
-  .get(isLoggedIn, listingscontroller.addNewlistings)
-  .post(isLoggedIn, wrapAsync(listingscontroller.postNewListing));
+router.route("/new").get(isLoggedIn, listingscontroller.addNewlistings).post(
+  isLoggedIn,
+
+  wrapAsync(listingscontroller.postNewListing)
+);
 
 // show rout
 
