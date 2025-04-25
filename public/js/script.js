@@ -21,3 +21,16 @@
     );
   });
 })();
+
+let tax = document.getElementById("flexSwitchCheckDefault");
+tax.addEventListener("click", (event) => {
+  let tax_info = document.getElementsByClassName("tax");
+  for (info of tax_info) {
+    if (event.target.checked) {
+      info.style.display = "inline";
+    } else {
+      info.style.display = "none";
+    }
+    // console.log(event.target.checked);
+  }
+});

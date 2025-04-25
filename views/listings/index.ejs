@@ -1,42 +1,11 @@
 <% layout("/layouts/boilerplate") %>
 <link rel="stylesheet" href="/css/style.css" />
-<style>
-  #filter {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    border-radius: 1rem;
-  }
-  .filter {
-    margin-right: 2rem;
-    margin-top: 2rem;
-    cursor: pointer;
-    text-align: center;
-    opacity: 0.7;
-  }
 
-  .filter:hover {
-    opacity: 1;
-  }
-  .tax {
-    display: none;
-  }
-  .tax-check {
-    background-color: rgb(238, 238, 238);
-    margin-top: 30px;
-    margin-bottom: 15px;
-    margin-right: 10px;
-    display: flex;
-    align-items: center;
-    width: 150px;
-    padding: 10px;
-    border-radius: 10px;
-  }
-</style>
 <div id="filter">
   <div class="filter">
-    <div><i class="fa-solid fa-fire"></i></div>
+    <div>
+      <a href="#"><i class="fa-solid fa-fire"></i></a>
+    </div>
     <p>Trading</p>
   </div>
   <div class="filter">
@@ -114,17 +83,4 @@
   </a>
   <% } %>
 </div>
-<script>
-  let tax = document.getElementById("flexSwitchCheckDefault");
-  tax.addEventListener("click", (event) => {
-    let tax_info = document.getElementsByClassName("tax");
-    for (info of tax_info) {
-      if (event.target.checked) {
-        info.style.display = "inline";
-      } else {
-        info.style.display = "none";
-      }
-      // console.log(event.target.checked);
-    }
-  });
-</script>
+<script src="/public/js/script.js"></script>

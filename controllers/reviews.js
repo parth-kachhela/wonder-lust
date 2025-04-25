@@ -20,6 +20,7 @@ module.exports.postReviews = async (req, res) => {
     req.flash("success", "Review added!");
     res.redirect(`/listings/${listing._id}`);
   } catch (err) {
+    sa;
     console.log(err);
   }
 };
