@@ -1,52 +1,131 @@
-Wonderlust: A Responsive Airbnb Clone
+Here’s a `README.md` for your **Wonder-Lust** project — an Airbnb hotel management clone using Express and EJS:
 
-Overview
+---
 
-Wonderlust is a responsive web application that clones the popular Airbnb website. Built using JavaScript, Express,EJS, EJS-Mate, Joi, and method overriding, this project showcases a robust and scalable architecture.
+```markdown
+# 🌍 Wonder-Lust
 
-Features
+**Wonder-Lust** is a full-stack web application inspired by Airbnb. It allows users to explore, list, and book vacation rentals around the world. Built using **Node.js**, **Express**, and **EJS** templating, the project offers essential features of a hotel management and booking platform.
 
-Responsive Design: Wonderlust is optimized for various devices and screen sizes, ensuring a seamless user experience.
-JavaScript: The project utilizes JavaScript for dynamic client-side functionality.
-Express: The Express framework is used for building the server-side application.
-EJS: EJS templating engine is used for rendering dynamic HTML templates.
-EJS-Mate: EJS-Mate is used for extending EJS functionality.
-Joi: Joi is used for data validation and sanitization.
-Method Overriding: Method overriding is used to enhance the functionality of existing methods.
-Node Packages: The project leverages various Node packages to enhance its functionality.
-Getting Started
+---
 
-Installation
+## 🚀 Features
 
-Clone the repository: git clone https://github.com/parth/wonder-lust.git
-Install dependencies: npm install
-Start the server: npm run start
-Configuration
+- 🔍 Browse hotels and places to stay
+- 🏨 Add new listings (hotels, apartments, etc.)
+- 📷 Upload multiple photos per listing
+- 📝 Edit or delete your own listings
+- 💬 Leave reviews and ratings
+- 👤 User authentication (register/login/logout)
+- 🔐 Authorization for protected routes
+- 📍 Integrated location map view (if implemented)
 
-Create a .env file in the root directory with the following variables:
+---
 
-DB_URI: MongoDB connection string
-CLOUDINARY_API_KEY: Cloudinary API key
-CLOUDINARY_API_SECRET: Cloudinary API secret
-Running the Application
+## 🛠️ Tech Stack
 
-Start the server: npm run start
-Open the application in your browser: http://localhost:3000
+- **Backend:** Node.js, Express.js
+- **Templating Engine:** EJS
+- **Database:** MongoDB (with Mongoose)
+- **Authentication:** Passport.js (Local Strategy)
+- **File Uploads:** Multer and Cloudinary (optional)
+- **Styling:** Bootstrap 5 / Tailwind CSS (based on your setup)
+- **Map Integration:** Mapbox or Leaflet.js (optional)
 
-License
+---
 
-This project is licensed under the MIT License. See LICENSE for details.
+## 📂 Folder Structure
 
-Contributing
+```
+wonder-lust/
+│
+├── public/              # Static assets (CSS, JS, images)
+├── routes/              # Express routes (listings, users, reviews)
+├── models/              # Mongoose models
+├── views/               # EJS templates
+│   ├── partials/        # Reusable UI components
+│   └── listings/        # Listing views
+├── middleware/          # Custom middleware functions
+├── app.js               # Main Express app
+└── package.json         # Project metadata and dependencies
+```
 
-Contributions are welcome! Please open a pull request to contribute to the project.
+---
 
-Acknowledgments
+## 🧑‍💻 Getting Started
 
-Airbnb for inspiring the project
-Node.js and Express for providing the foundation
-EJS and EJS-Mate for templating
-Joi for data validation
-Method overriding for enhancing functionality
-Various Node packages for enhancing the project
-I hope this helps! Let me know if you need any further assistance.
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/wonder-lust.git
+cd wonder-lust
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Create `.env` File
+
+```env
+PORT=3000
+DB_URL=mongodb://localhost:27017/wonder-lust
+SESSION_SECRET=yourSecretKey
+CLOUDINARY_CLOUD_NAME=yourCloudName
+CLOUDINARY_API_KEY=yourApiKey
+CLOUDINARY_API_SECRET=yourApiSecret
+```
+
+> If you're not using Cloudinary, you can skip those variables.
+
+### 4. Run the App
+
+```bash
+npm start
+```
+
+Go to `http://localhost:3000` in your browser.
+
+---
+
+## 🧪 Future Improvements
+
+- Add a date picker and booking system
+- Payment integration (Stripe/PayPal)
+- Email notifications
+- Profile pages for hosts and guests
+- Filter and search functionality
+- Responsive UI improvements
+
+---
+
+## 📸 Screenshots
+
+> _Coming Soon!
+
+---
+
+## 📄 License
+
+This project is open-source and free to use under the [MIT License](LICENSE).
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
+
+---
+
+## 🙌 Acknowledgments
+
+- Inspired by [Airbnb](https://www.airbnb.com/)
+- Thanks to Colt Steele’s "YelpCamp" series for architecture inspiration
+
+---
+
+```
+
+Let me know if you want a version with Markdown badges or images included.
