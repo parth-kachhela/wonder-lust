@@ -18,7 +18,6 @@ Here’s a `README.md` for your **Wonder-Lust** project — an Airbnb hotel mana
 - 💬 Leave reviews and ratings
 - 👤 User authentication (register/login/logout)
 - 🔐 Authorization for protected routes
-- 📍 Integrated location map view (if implemented)
 
 ---
 
@@ -27,10 +26,9 @@ Here’s a `README.md` for your **Wonder-Lust** project — an Airbnb hotel mana
 - **Backend:** Node.js, Express.js
 - **Templating Engine:** EJS
 - **Database:** MongoDB (with Mongoose)
-- **Authentication:** Passport.js (Local Strategy)
-- **File Uploads:** Multer and Cloudinary (optional)
-- **Styling:** Bootstrap 5 / Tailwind CSS (based on your setup)
-- **Map Integration:** Mapbox or Leaflet.js (optional)
+- **Authentication:** 
+- **File Uploads:** Multer and Cloudinary
+- **Styling:** Bootstrap 5
 
 ---
 
