@@ -122,8 +122,3 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 - Inspired by [Airbnb](https://www.airbnb.com/)
 - Thanks to Colt Steele’s "YelpCamp" series for architecture inspiration
 
----
-
-```
-
-Let me know if you want a version with Markdown badges or images included.
